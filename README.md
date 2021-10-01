@@ -19,7 +19,8 @@ feature -> develop -> master 로 관리한다.
 'feature' 브랜치는 새로운 기능, 버그 수정이 필요할 때 'develop' 브랜치로부터 분기한다.  
 개발이 완료되면 'develop' 브랜치에 merge 한다.  
 'feature' 브랜치는 다음과 같이 'develop' 브랜치에서 분기한다.
-```aidl  
+
+```
 $ git checkout -b kodohyeon_feature develop
 ```
 
