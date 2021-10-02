@@ -13,8 +13,14 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int _selectedIndex = 0;
-  List<Widget> _screen = [ProjectPage(), CompetitionPage(), ProfilePage()];
+  int _selectedIndex = 2;
+  List<Widget> _screen = [
+    ProjectPage(),
+    CompetitionPage(),
+    ProjectPage(),
+    CompetitionPage(),
+    ProfilePage()
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -35,12 +41,20 @@ class _MyAppState extends State<MyApp> {
           currentIndex: _selectedIndex,
           items: [
             BottomNavigationBarItem(
-              title: Text('프로젝트'),
+              title: Text('탐색'),
               icon: Icon(Icons.wb_sunny),
             ),
             BottomNavigationBarItem(
               title: Text('공모전'),
               icon: Icon(Icons.cloud),
+            ),
+            BottomNavigationBarItem(
+              title: Text('홈'),
+              icon: Icon(Icons.home),
+            ),
+            BottomNavigationBarItem(
+              title: Text('채팅'),
+              icon: Icon(Icons.chat),
             ),
             BottomNavigationBarItem(
               title: Text('내 정보'),
