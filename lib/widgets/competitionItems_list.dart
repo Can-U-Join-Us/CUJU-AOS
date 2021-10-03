@@ -34,6 +34,7 @@ class CompetitionItemsList extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text(description),
+                      Text("h"),
                       Text(
                         dueDate.toString(),
                       )
