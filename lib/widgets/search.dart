@@ -14,6 +14,10 @@ class _SearchWidgetState extends State<SearchWidget> {
   List<String> part = ['Front-End', 'Back-End', 'Android', 'IOS', 'DevOps'];
   List<String> scaleRanges = ["토이", "시/도", "전국", "국제"];
   List<String> termRanges = ["1개월", "6개월", "1년", "미정"];
+  Map<String, List<bool>> checkBoxValue = {
+    "scale": [false, false, false, false],
+    "term": [false, false, false, false]
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +48,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                       Container(
                         width: MediaQuery.of(context).size.width * 0.70,
                         height: 50,
-                        child: buildListViewCheckBox(scaleRanges),
+                        child: buildListViewCheckBox("scale"),
                       ),
                     ],
                   ),
@@ -59,7 +63,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                       Container(
                         width: MediaQuery.of(context).size.width * 0.70,
                         height: 50,
-                        child: buildListViewCheckBox(termRanges),
+                        child: buildListViewCheckBox("term"),
                       ),
                     ],
                   ),
@@ -106,35 +110,60 @@ class _SearchWidgetState extends State<SearchWidget> {
     );
   }
 
-  Widget buildListViewCheckBox(List<String> listItems) {
+  Widget buildListViewCheckBox(String type) {
     return ListView.builder(
       scrollDirection: Axis.horizontal,
       itemBuilder: (BuildContext context, int index) {
-        return buildCheckBox(listItems[index]);
+        if (type == "scale") {
+          return buildCheckBox(scaleRanges[index], type, index);
+        } else {
+          return buildCheckBox(termRanges[index], type, index);
+        }
       },
       itemCount: 4,
     );
   }
 
-  Widget buildCheckBox(String keyword) {
-    return Container(
-      height: 30,
-      child: Row(
-        children: <Widget>[
-          Checkbox(
-            value: _scaleCheckBox,
-            onChanged: (value) {
-              setState(
-                () {
-                  _scaleCheckBox = value!;
-                },
-              );
-            },
-          ),
-          Text(keyword),
-        ],
-      ),
-    );
+  Widget buildCheckBox(String keyword, String type, int index) {
+    if (type == "scale") {
+      return Container(
+        height: 30,
+        child: Row(
+          children: <Widget>[
+            Checkbox(
+              value: checkBoxValue[type]![index],
+              onChanged: (value) {
+                setState(
+                  () {
+                    checkBoxValue[type]![index] = value!;
+                  },
+                );
+              },
+            ),
+            Text(keyword),
+          ],
+        ),
+      );
+    } else {
+      return Container(
+        height: 30,
+        child: Row(
+          children: <Widget>[
+            Checkbox(
+              value: checkBoxValue["term"]![index],
+              onChanged: (value) {
+                setState(
+                  () {
+                    checkBoxValue["term"]![index] = value!;
+                  },
+                );
+              },
+            ),
+            Text(keyword),
+          ],
+        ),
+      );
+    }
   }
 
   Widget buildDropDownButton(List<String> listItems) {
