@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+class ChatPage extends StatelessWidget {
+  const ChatPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("프로필 페이지"),
+        title: Text("채팅"),
       ),
       body: Center(
-        child: Text("프로필 페이지"),
+        child: Text("채팅 페이지"),
       ),
     );
   }

@@ -10,19 +10,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: SingleChildScrollView(
-        child: Row(
-          children: <Widget>[
-            Container(
-              height : MediaQuery.of(context).size.height * 0.3
-            ),
-            SizedBox(),
-            Container(),
-            SizedBox(),
-            Container(),
-          ],
-        ),
+    return Scaffold(
+      body: Center(
+        child: Text("메인 페이지"),
       ),
     );
   }

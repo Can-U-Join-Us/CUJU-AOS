@@ -111,7 +111,7 @@ class _CompetitionInfoPageState extends State<CompetitionInfoPage>
               controller: _tabController,
             ),
             Container(
-              height: MediaQuery.of(context).size.height * 0.63,
+              height: MediaQuery.of(context).size.height * 0.67,
               child: TabBarView(
                 children: <Widget>[
                   buildIntroduce(_description, _dueDate, _imageUrl),

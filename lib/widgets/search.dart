@@ -90,7 +90,7 @@ class _SearchWidgetState extends State<SearchWidget> {
         children: <Widget>[
           Expanded(
             child: TextField(
-              decoration: InputDecoration(labelText: "검색어를 입력해주세요."),
+              decoration: InputDecoration(hintText: "검색어를 입력해주세요."),
             ),
           ),
           IconButton(

@@ -3,7 +3,9 @@ import 'package:canyoujoinus/pages/profile_page.dart';
 import 'package:canyoujoinus/pages/project_page.dart';
 import 'package:flutter/material.dart';
 
+import 'pages/chat_page.dart';
 import 'pages/competition_info_page.dart';
+import 'pages/home_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,8 +21,8 @@ class _MyAppState extends State<MyApp> {
   List<Widget> _screen = [
     ProjectPage(),
     CompetitionPage(),
-    ProjectPage(),
-    CompetitionPage(),
+    HomePage(),
+    ChatPage(),
     ProfilePage()
   ];
 
@@ -33,9 +35,6 @@ class _MyAppState extends State<MyApp> {
         accentColor: Colors.indigo,
       ),
       home: Scaffold(
-        appBar: AppBar(
-          title: Text("시험 테스트"),
-        ),
         body: _screen[_selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
