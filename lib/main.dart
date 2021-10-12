@@ -3,6 +3,8 @@ import 'package:canyoujoinus/pages/profile_page.dart';
 import 'package:canyoujoinus/pages/project_page.dart';
 import 'package:flutter/material.dart';
 
+import 'pages/competition_info_page.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -70,6 +72,9 @@ class _MyAppState extends State<MyApp> {
           },
         ),
       ),
+      routes: {
+        CompetitionInfoPage.routeName: (ctx) => CompetitionInfoPage(),
+      },
     );
   }
 }
