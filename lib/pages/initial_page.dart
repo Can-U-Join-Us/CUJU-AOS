@@ -1,4 +1,5 @@
-import 'package:canyoujoinus/pages/fields/signUp_page.dart';
+import 'package:canyoujoinus/pages/login_page.dart';
+import 'package:canyoujoinus/pages/signUp_page.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -102,10 +103,10 @@ class _InitialPageState extends State<InitialPage> {
                           FlatButton(
                             child: Container(
                               padding: const EdgeInsets.all(5.0),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10.0),
-                                color: Colors.lightBlueAccent,
-                              ),
+                              // decoration: BoxDecoration(
+                              //   borderRadius: BorderRadius.circular(10.0),
+                              //   color: Colors.grey,
+                              // ),
                               child: Text(
                                 "로그인",
                                 style: TextStyle(
@@ -115,15 +116,17 @@ class _InitialPageState extends State<InitialPage> {
                                 textAlign: TextAlign.center,
                               ),
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.of(context).pushNamed(LoginPage.routeName);
+                            },
                           ),
                           FlatButton(
                             child: Container(
                               padding: const EdgeInsets.all(5.0),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10.0),
-                                color: Colors.lightBlueAccent,
-                              ),
+                              // decoration: BoxDecoration(
+                              //   borderRadius: BorderRadius.circular(10.0),
+                              //   color: Colors.lightBlueAccent,
+                              // ),
                               child: Text(
                                 "회원 가입",
                                 style: TextStyle(
