@@ -5,6 +5,7 @@ import 'package:canyoujoinus/pages/fields/design_page.dart';
 import 'package:canyoujoinus/pages/fields/frontend_page.dart';
 import 'package:canyoujoinus/pages/fields/ios_page.dart';
 import 'package:canyoujoinus/pages/fields/pm_page.dart';
+import 'package:canyoujoinus/pages/fields/signUp_page.dart';
 import 'package:canyoujoinus/pages/initial_page.dart';
 import 'package:canyoujoinus/pages/profile_page.dart';
 import 'package:canyoujoinus/pages/project_page.dart';
@@ -85,6 +86,7 @@ class _MyAppState extends State<MyApp> {
         IosPage.routeName: (ctx) => IosPage(),
         DesignPage.routeName: (ctx) => DesignPage(),
         PmPage.routeName: (ctx) => PmPage(),
+        SignUpPage.routeName : (ctx) => SignUpPage(),
       },
     );
   }

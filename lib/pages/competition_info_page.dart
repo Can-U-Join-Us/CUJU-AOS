@@ -1,5 +1,5 @@
-import 'package:canyoujoinus/model/competition.dart';
-import 'package:canyoujoinus/model/recruit.dart';
+import 'package:canyoujoinus/models/competition.dart';
+import 'package:canyoujoinus/models/recruit.dart';
 import 'package:flutter/material.dart';
 
 class CompetitionInfoPage extends StatefulWidget {

@@ -1,6 +1,6 @@
 import 'package:canyoujoinus/widgets/search.dart';
 
-import '/model/competition.dart';
+import '/models/competition.dart';
 import 'package:canyoujoinus/widgets/competitionItems_list.dart';
 import 'package:flutter/material.dart';
 

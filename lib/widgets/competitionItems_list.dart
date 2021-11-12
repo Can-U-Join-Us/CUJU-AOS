@@ -1,4 +1,4 @@
-import 'package:canyoujoinus/model/competition.dart';
+import 'package:canyoujoinus/models/competition.dart';
 import 'package:canyoujoinus/pages/competition_page.dart';
 import 'package:flutter/material.dart';
 
