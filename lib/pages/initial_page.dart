@@ -1,3 +1,4 @@
+import 'package:canyoujoinus/pages/fields/signUp_page.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -87,45 +88,62 @@ class _InitialPageState extends State<InitialPage> {
                       ],
                     ),
                   ),
-                  Container(
-                    color: Colors.white,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(20.0),
-                          child: Image.asset("images/initial_4.png"),
-                        ),
-                        SizedBox(height: 20),
-                        FlatButton(
-                          child: Text(
-                            "로그인",
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            textAlign: TextAlign.center,
+                  SingleChildScrollView(
+                    child: Container(
+                      height: MediaQuery.of(context).size.height * 0.8,
+                      color: Colors.white,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Container(
+                            padding: const EdgeInsets.all(20.0),
+                            child: Image.asset("images/initial_4.png"),
                           ),
-                          onPressed: () {},
-                        ),
-                        FlatButton(
-                          child: Text(
-                            "회원가입",
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
+                          FlatButton(
+                            child: Container(
+                              padding: const EdgeInsets.all(5.0),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10.0),
+                                color: Colors.lightBlueAccent,
+                              ),
+                              child: Text(
+                                "로그인",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
                             ),
-                            textAlign: TextAlign.center,
+                            onPressed: () {},
                           ),
-                          onPressed: () {},
-                        ),
-                      ],
+                          FlatButton(
+                            child: Container(
+                              padding: const EdgeInsets.all(5.0),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10.0),
+                                color: Colors.lightBlueAccent,
+                              ),
+                              child: Text(
+                                "회원 가입",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            onPressed: () {
+                              Navigator.of(context).pushNamed(SignUpPage.routeName);
+                            },
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
               ),
             ),
-            SizedBox(height: 20),
             Expanded(
               child: Container(
                 color: Colors.white,
