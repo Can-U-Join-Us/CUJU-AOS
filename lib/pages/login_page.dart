@@ -26,6 +26,7 @@ class _LoginPageState extends State<LoginPage> {
         key: formKey,
         child: SingleChildScrollView(
           child: Container(
+            color: Colors.white,
             width: double.infinity,
             padding: const EdgeInsets.all(20.0),
             child: Column(
