@@ -5,7 +5,8 @@ import 'package:canyoujoinus/pages/fields/design_page.dart';
 import 'package:canyoujoinus/pages/fields/frontend_page.dart';
 import 'package:canyoujoinus/pages/fields/ios_page.dart';
 import 'package:canyoujoinus/pages/fields/pm_page.dart';
-import 'package:canyoujoinus/pages/fields/signUp_page.dart';
+import 'package:canyoujoinus/pages/login_page.dart';
+import 'package:canyoujoinus/pages/signUp_page.dart';
 import 'package:canyoujoinus/pages/initial_page.dart';
 import 'package:canyoujoinus/pages/profile_page.dart';
 import 'package:canyoujoinus/pages/project_page.dart';
@@ -38,6 +39,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        splashColor: Colors.transparent,
         primaryColor: Colors.blue,
         accentColor: Colors.indigo,
       ),
@@ -86,6 +88,7 @@ class _MyAppState extends State<MyApp> {
         IosPage.routeName: (ctx) => IosPage(),
         DesignPage.routeName: (ctx) => DesignPage(),
         PmPage.routeName: (ctx) => PmPage(),
+        LoginPage.routeName : (ctx) => LoginPage(),
         SignUpPage.routeName : (ctx) => SignUpPage(),
       },
     );
