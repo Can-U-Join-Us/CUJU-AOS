@@ -34,32 +34,14 @@ class _SignUpPageState extends State<SignUpPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 TitleTextComponent("이름"),
-                TextFormField(
-                  keyboardType: TextInputType.name,
-                  textInputAction: TextInputAction.next,
-                  decoration: InputDecoration(
-                    hintText: "이름을 입력해주세요.",
-                  ),
-                ),
-                SizedBox(height: 25),
+                TextFormFieldComponent(false, TextInputType.name, TextInputAction.next, "이름을 입력해주세요."),
+                SizedBox(height: 20),
                 TitleTextComponent("휴대폰 번호"),
-                TextFormField(
-                  keyboardType: TextInputType.number,
-                  textInputAction: TextInputAction.next,
-                  decoration: InputDecoration(
-                    hintText: "(예시) 01012341234",
-                  ),
-                ),
-                SizedBox(height: 25),
+                TextFormFieldComponent(false, TextInputType.number, TextInputAction.next, "(예시) 01012341234"),
+                SizedBox(height: 20),
                 TitleTextComponent("계정 이메일"),
-                TextFormField(
-                  keyboardType: TextInputType.emailAddress,
-                  textInputAction: TextInputAction.next,
-                  decoration: InputDecoration(
-                    hintText: "계정 이메일을 입력해주세요.",
-                  ),
-                ),
-                SizedBox(height: 25),
+                TextFormFieldComponent(false, TextInputType.emailAddress, TextInputAction.next, "계정 이메일을 입력해주세요."),
+                SizedBox(height: 20),
                 TitleTextComponent("비밀번호"),
                 Container(
                   child: Text(
@@ -69,30 +51,16 @@ class _SignUpPageState extends State<SignUpPage> {
                         fontWeight: FontWeight.bold,
                         color: Colors.grey),
                   ),
-                  margin: EdgeInsets.only(bottom: 5),
+                  margin: EdgeInsets.only(bottom: 10),
                 ),
-                TextFormField(
-                  obscureText: true,
-                  keyboardType: TextInputType.visiblePassword,
-                  textInputAction: TextInputAction.next,
-                  decoration: InputDecoration(
-                    hintText: "비밀번호를 입력해주세요.",
-                  ),
-                ),
-                SizedBox(height: 25),
+                TextFormFieldComponent(true, TextInputType.visiblePassword, TextInputAction.done, "비밀번호를 입력해주세요."),
+                SizedBox(height: 20),
                 TitleTextComponent("비밀번호 확인"),
-                TextFormField(
-                  obscureText: true,
-                  keyboardType: TextInputType.visiblePassword,
-                  textInputAction: TextInputAction.done,
-                  decoration: InputDecoration(
-                    hintText: "비밀번호를 다시 한번 입력해주세요.",
-                  ),
-                ),
-                SizedBox(height: 25),
+                TextFormFieldComponent(true, TextInputType.visiblePassword, TextInputAction.next, "비밀번호를 다시 한번 해주세요."),
+                SizedBox(height: 20),
                 CheckBoxComponent("개인정보 수집 및 이용 동의 (필수)"),
                 CheckBoxComponent("이벤트 소식 등 알림 정보 받기"),
-                SizedBox(height: 25),
+                SizedBox(height: 20),
                 FlatButton(
                   child: Container(
                     height: 40,
@@ -133,7 +101,29 @@ class _SignUpPageState extends State<SignUpPage> {
         keyword,
         style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
       ),
-      margin: EdgeInsets.only(bottom: 5),
+      margin: EdgeInsets.only(bottom: 10),
+    );
+  }
+
+  Widget TextFormFieldComponent(bool obscureText, TextInputType keyboardType, TextInputAction textInputAction, String hintText)  {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(
+          color: Colors.grey,
+        ),
+      ),
+      child: TextFormField(
+        obscureText: obscureText,
+        keyboardType: keyboardType,
+        textInputAction: textInputAction,
+        decoration: InputDecoration(
+          border: InputBorder.none,
+          focusedBorder: InputBorder.none,
+          hintText: hintText,
+        ),
+      ),
     );
   }
 
