@@ -85,7 +85,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         validator: (value) {
                           if (value!.length < 10) {
-                            return "이메일 형식에 맞게 입력해주세요!";
+                            return "이메일 형식에 맞게 입력해주세요.";
                           }
                         },
                       ),

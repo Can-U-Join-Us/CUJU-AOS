@@ -50,15 +50,15 @@ class _SignUpPageState extends State<SignUpPage> {
               children: <Widget>[
                 TitleTextComponent("이름"),
                 TextFormFieldComponent(false, TextInputType.name,
-                    TextInputAction.next, "이름을 입력해주세요.", 3),
+                    TextInputAction.next, "이름을 입력해주세요.", 2, "이름은 2자 이상입니다."),
                 SizedBox(height: 20),
                 TitleTextComponent("휴대폰 번호"),
                 TextFormFieldComponent(false, TextInputType.number,
-                    TextInputAction.next, "(예시) 01012341234", 11),
+                    TextInputAction.next, "(예시) 01012341234", 10, "휴대폰 번호는 10자 이상입니다."),
                 SizedBox(height: 20),
                 TitleTextComponent("계정 이메일"),
                 TextFormFieldComponent(false, TextInputType.emailAddress,
-                    TextInputAction.next, "계정 이메일을 입력해주세요.", 10),
+                    TextInputAction.next, "계정 이메일을 입력해주세요.", 10, "이메일 형식에 맞게 입력해주세요."),
                 SizedBox(height: 20),
                 TitleTextComponent("비밀번호"),
                 Container(
@@ -72,11 +72,11 @@ class _SignUpPageState extends State<SignUpPage> {
                   margin: EdgeInsets.only(bottom: 10),
                 ),
                 TextFormFieldComponent(true, TextInputType.visiblePassword,
-                    TextInputAction.done, "비밀번호를 입력해주세요.", 10),
+                    TextInputAction.done, "비밀번호를 입력해주세요.", 10, "비밀번호는 10자 이상입니다."),
                 SizedBox(height: 20),
                 TitleTextComponent("비밀번호 확인"),
                 TextFormFieldComponent(true, TextInputType.visiblePassword,
-                    TextInputAction.next, "비밀번호를 다시 한번 해주세요.", 10),
+                    TextInputAction.next, "비밀번호를 다시 한번 해주세요.", 10, "비밀번호는 10자 이상입니다."),
                 SizedBox(height: 20),
                 CheckBoxComponent("개인정보 수집 및 이용 동의 (필수)"),
                 SizedBox(height: 20),
@@ -119,7 +119,7 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   Widget TextFormFieldComponent(bool obscureText, TextInputType keyboardType,
-      TextInputAction textInputAction, String hintText, int maxSize) {
+      TextInputAction textInputAction, String hintText, int maxSize, String errorMessage) {
     return Container(
       child: TextFormField(
         obscureText: obscureText,
@@ -130,7 +130,7 @@ class _SignUpPageState extends State<SignUpPage> {
         ),
         validator: (value) {
           if (value!.length < maxSize) {
-            return "형식에 맞게 입력해주세요!";
+            return errorMessage;
           }
         },
       ),
