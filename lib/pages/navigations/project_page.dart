@@ -1,9 +1,9 @@
-import 'package:canyoujoinus/pages/fields/android_page.dart';
-import 'package:canyoujoinus/pages/fields/backend_page.dart';
-import 'package:canyoujoinus/pages/fields/design_page.dart';
-import 'package:canyoujoinus/pages/fields/frontend_page.dart';
-import 'package:canyoujoinus/pages/fields/ios_page.dart';
-import 'package:canyoujoinus/pages/fields/pm_page.dart';
+import '/pages/inFields/android_page.dart';
+import '/pages/inFields/backend_page.dart';
+import '/pages/inFields/design_page.dart';
+import '/pages/inFields/frontend_page.dart';
+import '/pages/inFields/ios_page.dart';
+import '/pages/inFields/pm_page.dart';
 import 'package:flutter/material.dart';
 
 class ProjectPage extends StatefulWidget {
