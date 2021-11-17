@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'main_page.dart';
-import 'profile_page.dart';
-import 'chat_page.dart';
-import 'competition_page.dart';
-import 'project_page.dart';
+import 'navigations/main_page.dart';
+import 'navigations/profile_page.dart';
+import 'navigations/chat_page.dart';
+import 'navigations/competition_page.dart';
+import 'navigations/project_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -29,6 +29,8 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.white,
+        unselectedItemColor: Colors.grey,
+        selectedItemColor: Colors.black,
         currentIndex: _selectedIndex,
         items: [
           BottomNavigationBarItem(

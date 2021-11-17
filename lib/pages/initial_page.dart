@@ -1,5 +1,5 @@
-import 'package:canyoujoinus/pages/login_page.dart';
-import 'package:canyoujoinus/pages/signUp_page.dart';
+import 'package:canyoujoinus/pages/auths/login_page.dart';
+import 'package:canyoujoinus/pages/auths/signUp_page.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 

@@ -1,4 +1,3 @@
-import 'package:canyoujoinus/pages/competition_page.dart';
 import 'package:flutter/material.dart';
 
 class ProjectItemsGrid extends StatelessWidget {
