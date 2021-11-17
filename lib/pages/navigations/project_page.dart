@@ -1,3 +1,5 @@
+import 'package:canyoujoinus/pages/posts/add_project.dart';
+
 import '/pages/inFields/android_page.dart';
 import '/pages/inFields/backend_page.dart';
 import '/pages/inFields/design_page.dart';
@@ -27,7 +29,13 @@ class _ProjectPageState extends State<ProjectPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("프로젝트 탐색"),
+        centerTitle: true,
+        title: Text(
+          "프로젝트 탐색",
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.black),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -49,6 +57,17 @@ class _ProjectPageState extends State<ProjectPage> {
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        child : Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
+        backgroundColor: Colors.black,
+        onPressed: () {
+          Navigator.of(context).pushNamed(AddProjectPage.routeName);
+        },
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat
     );
   }
 
