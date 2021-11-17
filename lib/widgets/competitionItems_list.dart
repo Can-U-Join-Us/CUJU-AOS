@@ -1,5 +1,5 @@
-import 'package:canyoujoinus/models/competition.dart';
-import 'package:canyoujoinus/pages/competition_page.dart';
+import '/models/competition.dart';
+import '/pages/navigations/competition_page.dart';
 import 'package:flutter/material.dart';
 
 class CompetitionItemsList extends StatelessWidget {
@@ -19,7 +19,7 @@ class CompetitionItemsList extends StatelessWidget {
         margin: EdgeInsets.only(bottom: 8),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: Theme.of(context).accentColor, width: 3),
+          border: Border.all(color: Colors.grey, width: 3),
         ),
         child: Row(
           children: <Widget>[

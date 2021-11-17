@@ -72,11 +72,11 @@ class _SignUpPageState extends State<SignUpPage> {
                   margin: EdgeInsets.only(bottom: 10),
                 ),
                 TextFormFieldComponent(true, TextInputType.visiblePassword,
-                    TextInputAction.done, "비밀번호를 입력해주세요.", 10, "비밀번호는 10자 이상입니다."),
+                    TextInputAction.next, "비밀번호를 입력해주세요.", 10, "비밀번호는 10자 이상입니다."),
                 SizedBox(height: 20),
                 TitleTextComponent("비밀번호 확인"),
                 TextFormFieldComponent(true, TextInputType.visiblePassword,
-                    TextInputAction.next, "비밀번호를 다시 한번 해주세요.", 10, "비밀번호는 10자 이상입니다."),
+                    TextInputAction.done, "비밀번호를 다시 한번 해주세요.", 10, "비밀번호는 10자 이상입니다."),
                 SizedBox(height: 20),
                 CheckBoxComponent("개인정보 수집 및 이용 동의 (필수)"),
                 SizedBox(height: 20),
@@ -118,8 +118,7 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 
-  Widget TextFormFieldComponent(bool obscureText, TextInputType keyboardType,
-      TextInputAction textInputAction, String hintText, int maxSize, String errorMessage) {
+  Widget TextFormFieldComponent(bool obscureText, TextInputType keyboardType, TextInputAction textInputAction, String hintText, int maxSize, String errorMessage) {
     return Container(
       child: TextFormField(
         obscureText: obscureText,

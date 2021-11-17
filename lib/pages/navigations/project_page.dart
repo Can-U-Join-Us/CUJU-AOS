@@ -1,9 +1,11 @@
-import 'package:canyoujoinus/pages/fields/android_page.dart';
-import 'package:canyoujoinus/pages/fields/backend_page.dart';
-import 'package:canyoujoinus/pages/fields/design_page.dart';
-import 'package:canyoujoinus/pages/fields/frontend_page.dart';
-import 'package:canyoujoinus/pages/fields/ios_page.dart';
-import 'package:canyoujoinus/pages/fields/pm_page.dart';
+import 'package:canyoujoinus/pages/posts/add_project.dart';
+
+import '/pages/inFields/android_page.dart';
+import '/pages/inFields/backend_page.dart';
+import '/pages/inFields/design_page.dart';
+import '/pages/inFields/frontend_page.dart';
+import '/pages/inFields/ios_page.dart';
+import '/pages/inFields/pm_page.dart';
 import 'package:flutter/material.dart';
 
 class ProjectPage extends StatefulWidget {
@@ -27,7 +29,13 @@ class _ProjectPageState extends State<ProjectPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("프로젝트 탐색"),
+        centerTitle: true,
+        title: Text(
+          "프로젝트 탐색",
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.black),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -49,6 +57,17 @@ class _ProjectPageState extends State<ProjectPage> {
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        child : Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
+        backgroundColor: Colors.black,
+        onPressed: () {
+          Navigator.of(context).pushNamed(AddProjectPage.routeName);
+        },
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat
     );
   }
 
