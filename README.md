@@ -13,7 +13,7 @@
 <img src="https://github.com/Can-U-Join-Us/CUJU-AOS/blob/master/images/initial_3.png" width="300">
 </div>
 
- **같이할래?** 는 대학생이 개인 프로젝트 진행이나 공모전 참가를 위해 분야별(FE, BE, PM 등등)로 인원을 쉽게 모집할 수 있도록 도와주는 **팀원 모집 플랫폼**입니다.
+ **같이할래?** 는 충남대학교 컴퓨터공학과 소프트웨어공학 교과목에서 진행한 팀프로젝트로 대학생이 개인 프로젝트 진행이나 공모전 참가를 위해 분야별(FE, BE, PM 등등)로 인원을 쉽게 모집할 수 있도록 도와주는 **팀원 모집 플랫폼**입니다.
 
 ## 팀 소개
 
@@ -21,6 +21,12 @@
 |:-:|:-:|:-:|
 |<a href="url"><img src="https://avatars.githubusercontent.com/k906506" style="border-radius:50%"></a>|<a href="url"><img src="https://avatars.githubusercontent.com/sinheeseung" style="border-radius:50%"></a>|<a href="url"><img src="https://avatars.githubusercontent.com/201702083" style="border-radius:50%"></a>|
 |프론트엔드|프론트엔드|백엔드|
+
+## 기능
+
+## 라이브러리
+
+## 아키텍쳐
 
 ## 브랜치 관리 방법
 feature -> develop -> master 로 관리한다.
