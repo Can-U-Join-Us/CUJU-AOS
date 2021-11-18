@@ -10,14 +10,8 @@
 <div align="center">
 <img src="https://github.com/Can-U-Join-Us/CUJU-AOS/blob/master/images/initial_1.png" width="300">
 </br>
-</div>
-
-<div align="center">
 <img src="https://github.com/Can-U-Join-Us/CUJU-AOS/blob/master/images/initial_2.png" width="300">
 </br>
-</div>
-
-<div align="center">
 <img src="https://github.com/Can-U-Join-Us/CUJU-AOS/blob/master/images/initial_3.png" width="300">
 </br>
 </div>
