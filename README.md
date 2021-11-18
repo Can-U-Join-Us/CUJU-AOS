@@ -3,20 +3,24 @@
 <div align="center">
 <img src="https://github.com/Can-U-Join-Us/CUJU-AOS/blob/master/images/initial_4.png" width="300">
 </br>
+</div>
 
 ## 프로젝트 소개
 
 <div align="center">
 <img src="https://github.com/Can-U-Join-Us/CUJU-AOS/blob/master/images/initial_1.png" width="300">
 </br>
+</div>
 
 <div align="center">
 <img src="https://github.com/Can-U-Join-Us/CUJU-AOS/blob/master/images/initial_2.png" width="300">
 </br>
+</div>
 
 <div align="center">
 <img src="https://github.com/Can-U-Join-Us/CUJU-AOS/blob/master/images/initial_3.png" width="300">
 </br>
+</div>
 
  **같이할래?** 는 대학생이 개인 프로젝트 진행이나 공모전 참가를 위해 분야별(FE, BE, PM 등등)로 인원을 쉽게 모집할 수 있도록 도와주는 **팀원 모집 플랫폼**입니다.
 
