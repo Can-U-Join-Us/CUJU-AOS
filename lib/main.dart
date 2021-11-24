@@ -1,3 +1,4 @@
+import 'package:canyoujoinus/pages/auths/findUserInfo_page.dart';
 import 'package:canyoujoinus/pages/posts/add_project.dart';
 import 'package:canyoujoinus/pages/posts/contest_list_page.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -62,6 +63,7 @@ class _MyAppState extends State<MyApp> {
             PmPage.routeName: (ctx) => PmPage(),
             LoginPage.routeName: (ctx) => LoginPage(),
             SignUpPage.routeName: (ctx) => SignUpPage(),
+            FindUserInfoPage.routeName: (ctx) => FindUserInfoPage(),
             AddProjectPage.routeName: (ctx) => AddProjectPage(),
             ContestListPage.routeName : (ctx) => ContestListPage(),
           },

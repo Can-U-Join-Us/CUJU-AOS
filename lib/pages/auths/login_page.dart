@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:canyoujoinus/pages/auths/findUserInfo_page.dart';
 import 'package:canyoujoinus/providers/auth_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -143,7 +144,9 @@ class _LoginPageState extends State<LoginPage> {
                       style: TextStyle(color: Colors.blue, fontSize: 10),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(FindUserInfoPage.routeName);
+                  },
                 ),
               ],
             ),
