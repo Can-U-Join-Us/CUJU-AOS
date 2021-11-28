@@ -25,16 +25,72 @@
 ## 기능
 
 - [x]  로그인
+
+<div>
+<a href="url">
+<img src="https://images.velog.io/images/k906506/post/21b6d272-9c19-47cd-92bc-432dba0053b0/bandicam%202021-11-28%2015-04-35-416.jpg" style="border-radius:50%" height = "500">
+<img src="https://images.velog.io/images/k906506/post/289f7406-a317-400d-9206-054c0b4febc7/bandicam%202021-11-28%2015-09-40-461.jpg" style="border-radius:50%" height = "500">
+<img src="https://images.velog.io/images/k906506/post/558d8a27-f3ff-4e12-9def-afbd78663010/bandicam%202021-11-28%2015-09-42-447.jpg" style="border-radius:50%" height = "500">
+<img src="https://images.velog.io/images/k906506/post/f345197c-b71b-41a9-93cb-ae9d8370b4be/bandicam%202021-11-28%2015-04-42-497.jpg" style="border-radius:50%" height = "500">
+<img src="https://images.velog.io/images/k906506/post/768d5f33-6065-411b-b6b0-61626c6ceb50/bandicam%202021-11-28%2015-04-47-629.jpg" style="border-radius:50%" height = "500">
+</a>
+</div>
+
 - [x]  회원가입
+
+<div>
+<a href="url">
+<img src="https://images.velog.io/images/k906506/post/78d4d044-6a40-490e-810a-b3c75ad840bb/bandicam%202021-11-28%2015-05-08-905.jpg" style="border-radius:50%" height = "500">
+</a>
+</div>
+
 - [ ]  아이디, 비밀번호 찾기
+
+<div>
+<a href="url">
+<img src="https://images.velog.io/images/k906506/post/c8a99c27-97f3-48b1-b3b1-77311502ff80/bandicam%202021-11-28%2015-04-53-141.jpg" style="border-radius:50%" height = "500">
+<img src="https://images.velog.io/images/k906506/post/7ba1429a-c841-4892-ba3c-b0283633a97b/bandicam%202021-11-28%2015-04-55-597.jpg" style="border-radius:50%" height = "500">
+</a>
+</div>
+
 - [ ]  개인정보 수정
+
 - [ ]  프로필 수정
+
 - [ ]  게시물 알림 설정
+
 - [x]  팀원 모집 게시물 등록
+
+<div>
+<a href="url">
+<img src="https://images.velog.io/images/k906506/post/b29acc9f-7c9b-4fc8-bb17-46b896e9ef9e/bandicam%202021-11-28%2015-05-55-001.jpg" style="border-radius:50%" height = "500">
+<img src="https://images.velog.io/images/k906506/post/4041799f-2ed3-4308-b287-84d7125d475c/bandicam%202021-11-28%2015-06-00-090.jpg" style="border-radius:50%" height = "500">
+</a>
+</div>
+
 - [ ]  팀원 모집 게시물 조회 및 참가
+
 - [ ]  공모전 게시글 등록
+
 - [x]  공모전 게시글 조회
-- [ ]  주최자 권한 설정
+
+<div>
+<a href="url">
+<img src="https://images.velog.io/images/k906506/post/793c5334-1956-4a80-b76e-08ee3a39d935/bandicam%202021-11-28%2015-06-13-364.jpg" style="border-radius:50%" height = "500">
+<img src="https://images.velog.io/images/k906506/post/eeaf582a-bad0-4a9c-b135-d7b09c03c324/bandicam%202021-11-28%2015-18-48-007.jpg" style="border-radius:50%" height = "500">
+<img src="https://images.velog.io/images/k906506/post/32d35bb1-aa9d-4591-b21e-6c30c0c5929a/bandicam%202021-11-28%2015-18-49-815.jpg" style="border-radius:50%" height = "500">
+<img src="https://images.velog.io/images/k906506/post/a2a86e33-59aa-4e01-8f6b-524d00a4d59e/bandicam%202021-11-28%2015-18-51-728.jpg" style="border-radius:50%" height = "500">
+</a>
+</div>
+
+- [x]  주최자 권한 설정
+
+<div>
+<a href="url">
+<img src="https://images.velog.io/images/k906506/post/da78d5d4-35dc-4e63-8eed-f663a0f69351/bandicam%202021-11-28%2015-06-19-518.jpg" style="border-radius:50%" height = "500">
+</a>
+</div>
+
 - [ ]  채팅
 
 ## 라이브러리
