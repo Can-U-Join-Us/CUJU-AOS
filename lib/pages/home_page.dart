@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'navigations/main_page.dart';
 import 'navigations/profile_page.dart';
 import 'navigations/chat_page.dart';
-import 'navigations/competition_page.dart';
+import 'navigations/contest_page.dart';
 import 'navigations/project_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 2;
   List<Widget> _screen = [
     ProjectPage(),
-    CompetitionPage(),
+    ContestPage(),
     MainPage(),
     ChatPage(),
     ProfilePage()
