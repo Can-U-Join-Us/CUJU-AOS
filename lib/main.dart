@@ -1,3 +1,5 @@
+import 'package:canyoujoinus/pages/auths/findUserInfo_page.dart';
+import 'package:canyoujoinus/pages/inFields/search_page.dart';
 import 'package:canyoujoinus/pages/posts/add_project.dart';
 import 'package:canyoujoinus/pages/posts/contest_list_page.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -12,7 +14,7 @@ import '/pages/auths/login_page.dart';
 import '/pages/auths/signUp_page.dart';
 import '/pages/initial_page.dart';
 import 'package:flutter/material.dart';
-import 'pages/inFields/competition_info_page.dart';
+import 'pages/inFields/contest_info_page.dart';
 import 'pages/home_page.dart';
 import 'providers/auth_provider.dart';
 import 'package:provider/provider.dart';
@@ -53,6 +55,7 @@ class _MyAppState extends State<MyApp> {
           ),
           home: auth.isAuth ? HomePage() : InitialPage(),
           routes: {
+            SearchPage.routeName: (ctx) => SearchPage(),
             CompetitionInfoPage.routeName: (ctx) => CompetitionInfoPage(),
             FrontendPage.routeName: (ctx) => FrontendPage(),
             BackendPage.routeName: (ctx) => BackendPage(),
@@ -62,8 +65,9 @@ class _MyAppState extends State<MyApp> {
             PmPage.routeName: (ctx) => PmPage(),
             LoginPage.routeName: (ctx) => LoginPage(),
             SignUpPage.routeName: (ctx) => SignUpPage(),
+            FindUserInfoPage.routeName: (ctx) => FindUserInfoPage(),
             AddProjectPage.routeName: (ctx) => AddProjectPage(),
-            ContestListPage.routeName : (ctx) => ContestListPage(),
+            ContestListPage.routeName: (ctx) => ContestListPage(),
           },
         ),
       ),

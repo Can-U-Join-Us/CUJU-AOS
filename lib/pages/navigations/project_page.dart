@@ -1,5 +1,5 @@
-import 'package:canyoujoinus/pages/posts/add_project.dart';
-
+import '/pages/inFields/search_page.dart';
+import '/pages/posts/add_project.dart';
 import '/pages/inFields/android_page.dart';
 import '/pages/inFields/backend_page.dart';
 import '/pages/inFields/design_page.dart';
@@ -34,6 +34,14 @@ class _ProjectPageState extends State<ProjectPage> {
           "프로젝트 탐색",
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
+        actions: [
+          IconButton(
+            icon : Icon(Icons.search),
+            onPressed: () {
+              Navigator.of(context).pushNamed(SearchPage.routeName);
+            },
+          )
+        ],
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(color: Colors.black),
       ),

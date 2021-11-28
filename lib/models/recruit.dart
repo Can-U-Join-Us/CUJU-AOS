@@ -7,12 +7,12 @@ class Recruit {
 
 class RecruitItems {
   List<Recruit> recruitItems = [
-    Recruit(id: "고도현", content: "같이 프로젝트 할 사람?"),
-    Recruit(id: "고도현", content: "같이 프로젝트 할 사람?"),
-    Recruit(id: "고도현", content: "같이 프로젝트 할 사람?"),
-    Recruit(id: "고도현", content: "같이 프로젝트 할 사람?"),
-    Recruit(id: "고도현", content: "같이 프로젝트 할 사람?"),
-    Recruit(id: "고도현", content: "같이 프로젝트 할 사람?"),
+    // Recruit(id: "고도현", content: "같이 프로젝트 할 사람?"),
+    // Recruit(id: "고도현", content: "같이 프로젝트 할 사람?"),
+    // Recruit(id: "고도현", content: "같이 프로젝트 할 사람?"),
+    // Recruit(id: "고도현", content: "같이 프로젝트 할 사람?"),
+    // Recruit(id: "고도현", content: "같이 프로젝트 할 사람?"),
+    // Recruit(id: "고도현", content: "같이 프로젝트 할 사람?"),
   ];
 
   List<Recruit> get items {

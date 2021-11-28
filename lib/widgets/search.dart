@@ -10,6 +10,9 @@ class SearchWidget extends StatefulWidget {
 class _SearchWidgetState extends State<SearchWidget> {
   bool pressExpanded = false;
   bool _scaleCheckBox = false;
+  String _selectCategory = '여기에';
+  String _selectPart = 'Front-End';
+
   List<String> category = ['여기에', '뭐 들어가?', '안녕'];
   List<String> part = ['Front-End', 'Back-End', 'Android', 'IOS', 'DevOps'];
   List<String> scaleRanges = ["토이", "시/도", "전국", "국제"];
@@ -18,6 +21,11 @@ class _SearchWidgetState extends State<SearchWidget> {
     "scale": [false, false, false, false],
     "term": [false, false, false, false]
   };
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,9 +79,47 @@ class _SearchWidgetState extends State<SearchWidget> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text("카테고리"),
-                      buildDropDownButton(category),
+                      DropdownButton(
+                        value: _selectCategory,
+                        items: category
+                            .map(
+                              (value) => DropdownMenuItem(
+                                value: value,
+                                child: Text(
+                                  value.toString(),
+                                ),
+                              ),
+                            )
+                            .toList(),
+                        onChanged: (value) {
+                          setState(
+                            () {
+                              _selectCategory = value as String;
+                            },
+                          );
+                        },
+                      ),
                       Text("모집 부분"),
-                      buildDropDownButton(part),
+                      DropdownButton(
+                        value: _selectPart,
+                        items: part
+                            .map(
+                              (value) => DropdownMenuItem(
+                                value: value,
+                                child: Text(
+                                  value.toString(),
+                                ),
+                              ),
+                            )
+                            .toList(),
+                        onChanged: (value) {
+                          setState(
+                            () {
+                              _selectPart = value as String;
+                            },
+                          );
+                        },
+                      ),
                     ],
                   ),
                 ],

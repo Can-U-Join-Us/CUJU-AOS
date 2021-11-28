@@ -13,7 +13,13 @@ class ProfilePage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("프로필 페이지"),
+        centerTitle: true,
+        title: Text(
+          "프로필",
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.black),
       ),
       body: Center(
         child: FlatButton(child: Text("로그아웃"), onPressed: () {

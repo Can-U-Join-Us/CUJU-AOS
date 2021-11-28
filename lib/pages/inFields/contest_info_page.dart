@@ -1,5 +1,6 @@
 import 'package:canyoujoinus/models/competition.dart';
 import 'package:canyoujoinus/models/recruit.dart';
+import 'package:canyoujoinus/pages/posts/add_project.dart';
 import 'package:flutter/material.dart';
 
 class CompetitionInfoPage extends StatefulWidget {
@@ -30,7 +31,6 @@ class _CompetitionInfoPageState extends State<CompetitionInfoPage>
 
   @override
   void didChangeDependencies() {
-    print("hi");
     if (_initState) {
       Competition competition =
           ModalRoute.of(context)!.settings.arguments as Competition;
@@ -47,7 +47,13 @@ class _CompetitionInfoPageState extends State<CompetitionInfoPage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("대외 활동 정보"),
+        centerTitle: true,
+        title: Text(
+          _title,
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.black),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -75,11 +81,8 @@ class _CompetitionInfoPageState extends State<CompetitionInfoPage>
                       children: <Widget>[
                         Text(
                           _title,
-                          textAlign: TextAlign.center,
-                        ),
-                        Text(
-                          _dueDate.toString(),
-                          textAlign: TextAlign.center,
+                          textAlign: TextAlign.end,
+                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),
@@ -88,6 +91,7 @@ class _CompetitionInfoPageState extends State<CompetitionInfoPage>
               ),
             ),
             TabBar(
+              indicatorColor: Colors.grey,
               tabs: [
                 Tab(
                   child: Text(
@@ -115,7 +119,7 @@ class _CompetitionInfoPageState extends State<CompetitionInfoPage>
               child: TabBarView(
                 children: <Widget>[
                   buildIntroduce(_description, _dueDate, _imageUrl),
-                  buildRecruitMember(),
+                  buildRecruitMember(context),
                   buildReply(comments),
                 ],
                 controller: _tabController,
@@ -124,12 +128,6 @@ class _CompetitionInfoPageState extends State<CompetitionInfoPage>
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        backgroundColor: Theme.of(context).primaryColor,
-        onPressed: () {},
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }
@@ -150,7 +148,26 @@ Widget buildIntroduce(String description, String dueDate, String imageUrl) {
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
               SizedBox(height: 10),
-              Text(dueDate),
+              Row(
+                children: [
+                  Text(dueDate),
+                  SizedBox(width: 10),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.grey,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(3.0),
+                      child: Text(
+                        "D-${(DateTime.parse(dueDate).difference(DateTime.now())).inDays.toString()}",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
               SizedBox(height: 20),
               Text(
                 "설명",
@@ -173,11 +190,32 @@ Widget buildIntroduce(String description, String dueDate, String imageUrl) {
   );
 }
 
-Widget buildRecruitMember() {
+Widget buildRecruitMember(BuildContext context) {
   List<Recruit> recruits = RecruitItems().items;
   return recruits.length == 0
       ? Center(
-          child: Text("작성된 모집 글이 없습니다."),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("작성된 모집 글이 없습니다."),
+              SizedBox(height: 30),
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.grey,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: FlatButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(AddProjectPage.routeName);
+                  },
+                  child: Text(
+                    "팀원 모집글 게시하기",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+            ],
+          ),
         )
       : Padding(
           padding: const EdgeInsets.all(16.0),
