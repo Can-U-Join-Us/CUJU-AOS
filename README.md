@@ -32,6 +32,8 @@
 <img src="https://images.velog.io/images/k906506/post/289f7406-a317-400d-9206-054c0b4febc7/bandicam%202021-11-28%2015-09-40-461.jpg" style="border-radius:50%" height = "500">
 <img src="https://images.velog.io/images/k906506/post/558d8a27-f3ff-4e12-9def-afbd78663010/bandicam%202021-11-28%2015-09-42-447.jpg" style="border-radius:50%" height = "500">
 </a>
+</div>
+<div>
 <a href="url">
 <img src="https://images.velog.io/images/k906506/post/f345197c-b71b-41a9-93cb-ae9d8370b4be/bandicam%202021-11-28%2015-04-42-497.jpg" style="border-radius:50%" height = "500">
 <img src="https://images.velog.io/images/k906506/post/768d5f33-6065-411b-b6b0-61626c6ceb50/bandicam%202021-11-28%2015-04-47-629.jpg" style="border-radius:50%" height = "500">
