@@ -1,15 +1,15 @@
 import '/models/competition.dart';
-import '/pages/navigations/competition_page.dart';
+import '/pages/navigations/contest_page.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
-class CompetitionItemsList extends StatelessWidget {
+class ContestItemsList extends StatelessWidget {
   String title;
   String description;
   String dueDate;
   String imageUrl;
 
-  CompetitionItemsList(
-      this.title, this.description, this.dueDate, this.imageUrl);
+  ContestItemsList(this.title, this.description, this.dueDate, this.imageUrl);
 
   @override
   Widget build(BuildContext context) {
@@ -42,14 +42,38 @@ class CompetitionItemsList extends StatelessWidget {
                   Text(
                     title,
                     textAlign: TextAlign.center,
+                    maxLines: 1,
+                    style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   Text(
                     description,
-                    textAlign: TextAlign.center,
+                    textAlign: TextAlign.end,
+                    maxLines: 1,
+                    style: TextStyle(fontSize: 10,),
                   ),
-                  Text(
-                    dueDate.toString(),
-                    textAlign: TextAlign.center,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text(
+                        dueDate.toString(),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(width: 20),
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.grey,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(3.0),
+                          child: Text(
+                            "D-${(DateTime.parse(dueDate).difference(DateTime.now())).inDays.toString()}",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -59,7 +83,7 @@ class CompetitionItemsList extends StatelessWidget {
       ),
       onTap: () {
         Navigator.of(context).pushNamed(
-          CompetitionPage.routeName,
+          ContestPage.routeName,
           arguments: Competition(
             title: this.title,
             description: this.description,
