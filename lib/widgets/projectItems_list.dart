@@ -2,13 +2,17 @@ import '/models/competition.dart';
 import '/pages/navigations/contest_page.dart';
 import 'package:flutter/material.dart';
 
-class ContestItemsList extends StatelessWidget {
-  String title;
-  String description;
-  String dueDate;
-  String imageUrl;
+class ProjectItemsList extends StatelessWidget {
+  late int id;
+  late int pid;
+  late String title;
+  late String description;
+  late String imageUrl;
+  late int count;
+  late int term;
+  late String due;
 
-  ContestItemsList(this.title, this.description, this.dueDate, this.imageUrl);
+  ProjectItemsList(this.id, this.pid, this.title, this.description, this.imageUrl, this.count, this.term, this.due);
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +33,7 @@ class ContestItemsList extends StatelessWidget {
               padding: EdgeInsets.all(10),
               child: Image(
                 image: NetworkImage(imageUrl),
-                fit: BoxFit.contain,
+                  fit: BoxFit.contain,
               ),
             ),
             Container(
@@ -55,11 +59,10 @@ class ContestItemsList extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text(
-                        dueDate.toString(),
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        "모집 마감밀 : ${due}",
                         textAlign: TextAlign.center,
                       ),
-                      SizedBox(width: 10),
+                      SizedBox(width: 20),
                       Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
@@ -68,7 +71,7 @@ class ContestItemsList extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.all(3.0),
                           child: Text(
-                            "D-${(DateTime.parse(dueDate).difference(DateTime.now())).inDays.toString()}",
+                            "D-${(DateTime.parse(due).difference(DateTime.now())).inDays.toString()}",
                             textAlign: TextAlign.center,
                             style: TextStyle(color: Colors.white),
                           ),
@@ -88,7 +91,7 @@ class ContestItemsList extends StatelessWidget {
           arguments: Competition(
             title: this.title,
             description: this.description,
-            dueDate: this.dueDate,
+            dueDate: this.due,
             imageUrl: this.imageUrl,
           ),
         );

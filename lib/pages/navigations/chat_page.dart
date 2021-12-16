@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
 
-class ChatPage extends StatelessWidget {
+class ChatPage extends StatefulWidget {
   const ChatPage({Key? key}) : super(key: key);
+
+  @override
+  State<ChatPage> createState() => _ChatPageState();
+}
+
+class _ChatPageState extends State<ChatPage> {
+  Future<void> _refresh(BuildContext context) async {
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +24,11 @@ class ChatPage extends StatelessWidget {
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(color: Colors.black),
       ),
-      body: Center(
-        child: Text("채팅 페이지"),
+      body: RefreshIndicator(
+        onRefresh: () => _refresh(context),
+        child: Center(
+          child: Text("채팅 페이지sadf"),
+        ),
       ),
     );
   }

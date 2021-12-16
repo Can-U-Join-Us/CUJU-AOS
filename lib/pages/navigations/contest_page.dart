@@ -16,6 +16,9 @@ class ContestPage extends StatefulWidget {
 class _ContestPageState extends State<ContestPage> {
   int _regist = -1;
 
+  Future<void> _refresh() async {
+  }
+
   Future<void> _checkValidation(BuildContext context) async {
     // await로 Provider로 서버에서 등록 여부 판단하는 메소드 추가
     if (_regist == -1) {
@@ -107,27 +110,31 @@ class _ContestPageState extends State<ContestPage> {
           backgroundColor: Colors.white,
           iconTheme: IconThemeData(color: Colors.black),
         ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.77,
-                  child: Container(
-                    child: ListView.builder(
-                      itemBuilder: (BuildContext context, int index) =>
-                          ContestItemsList(
-                        CompetitionItems().items[index].title,
-                        CompetitionItems().items[index].description,
-                        CompetitionItems().items[index].dueDate,
-                        CompetitionItems().items[index].imageUrl,
+        body: RefreshIndicator(
+          onRefresh: () => _refresh(),
+          child: SingleChildScrollView(
+            physics: AlwaysScrollableScrollPhysics(),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.77,
+                    child: Container(
+                      child: ListView.builder(
+                        itemBuilder: (BuildContext context, int index) =>
+                            ContestItemsList(
+                          CompetitionItems().items[index].title,
+                          CompetitionItems().items[index].description,
+                          CompetitionItems().items[index].dueDate,
+                          CompetitionItems().items[index].imageUrl,
+                        ),
+                        itemCount: CompetitionItems().itemCount,
                       ),
-                      itemCount: CompetitionItems().itemCount,
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

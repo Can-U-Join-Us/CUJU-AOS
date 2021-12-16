@@ -1,4 +1,6 @@
+import 'package:canyoujoinus/providers/auth_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ChangePasswordPage extends StatefulWidget {
   static const routeName = "/changePassword";
@@ -39,18 +41,14 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
       return;
     } else {
       formKey.currentState!.save();
+      setState(() {
+        _isLoading = true;
+      });
       try {
-        setState(() {
-          _isLoading = true;
-        });
-        _showErrorDialog();
-        setState(() {
-          _isLoading = false;
-        });
+        await Provider.of<AuthProvider>(context, listen: false)
+            .changePassword(_currentPassword, _changePassword);
       } catch (error) {
-        setState(() {
-          _isLoading = false;
-        });
+        _showErrorDialog();
       }
     }
   }
@@ -87,11 +85,11 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                   onSaved: (value) {
                     _currentPassword = value!;
                   },
-                  // validator: (value) {
-                  //   if (value!.length < 10) {
-                  //     return "이메일 형식에 맞게 입력해주세요.";
-                  //   }
-                  // },
+                  validator: (value) {
+                    if (value!.length < 10) {
+                      return "비밀번호는 10자 이상입니다.";
+                    }
+                  },
                 ),
                 SizedBox(height: 10),
                 Container(
@@ -104,11 +102,11 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                     onSaved: (value) {
                       _changePassword = value!;
                     },
-                    // validator: (value) {
-                    //   if (value!.length < 10) {
-                    //     return "비밀번호는 10자 이상입니다.";
-                    //   }
-                    // },
+                    validator: (value) {
+                      if (value!.length < 10) {
+                        return "비밀번호는 10자 이상입니다.";
+                      }
+                    },
                   ),
                 ),
                 SizedBox(height: 20),

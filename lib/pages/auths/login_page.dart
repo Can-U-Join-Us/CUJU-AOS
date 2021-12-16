@@ -15,27 +15,58 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final formKey = GlobalKey<FormState>();
   var _isLoading = false;
+  late String? _id;
+  late String? _password;
+
+  void _showErrorDialog(String message) {
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(
+          "로그인 실패",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        content: Text(message),
+        actions: <Widget>[
+          FlatButton(
+            child: Text("예"),
+            onPressed: () {
+              Navigator.of(ctx).pop();
+            },
+          ),
+        ],
+      ),
+    );
+  }
 
   Future<void> _submit() async {
     if (formKey.currentState!.validate() == false) {
       return;
     } else {
       formKey.currentState!.save();
-      setState(() {
-        _isLoading = true;
-      });
-      await Provider.of<AuthProvider>(context, listen: false).login();
-      setState(() {
-        _isLoading = false;
-      });
-      if (Provider.of<AuthProvider>(context, listen: false).isAuth) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text("로그인에 성공하였습니다."),
-            duration: Duration(seconds: 1),
-          ),
-        );
-        Navigator.of(context).pop();
+      try {
+        setState(() {
+          _isLoading = true;
+        });
+        await Provider.of<AuthProvider>(context, listen: false)
+            .login(_id, _password);
+        setState(() {
+          _isLoading = false;
+        });
+        if (Provider.of<AuthProvider>(context, listen: false).isAuth) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text("로그인에 성공하였습니다."),
+              duration: Duration(seconds: 1),
+            ),
+          );
+          Navigator.of(context).pop();
+        }
+      } catch (error) {
+        setState(() {
+          _isLoading = false;
+        });
+        _showErrorDialog("아이디 또는 비밀번호를 확인해주세요.");
       }
     }
   }
@@ -68,7 +99,8 @@ class _LoginPageState extends State<LoginPage> {
                   child: Image.asset("images/initial_4.png"),
                 ),
                 Container(
-                  padding: const EdgeInsets.only(top : 10, bottom: 10, left: 20, right: 20),
+                  padding: const EdgeInsets.only(
+                      top: 10, bottom: 10, left: 20, right: 20),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
@@ -84,11 +116,14 @@ class _LoginPageState extends State<LoginPage> {
                         decoration: InputDecoration(
                           hintText: "계정 이메일을 입력해주세요.",
                         ),
-                        validator: (value) {
-                          if (value!.length < 10) {
-                            return "이메일 형식에 맞게 입력해주세요.";
-                          }
+                        onSaved: (value) {
+                          _id = value;
                         },
+                        // validator: (value) {
+                        //   if (value!.length < 10) {
+                        //     return "이메일 형식에 맞게 입력해주세요.";
+                        //   }
+                        // },
                       ),
                       SizedBox(height: 10),
                       Container(
@@ -99,11 +134,14 @@ class _LoginPageState extends State<LoginPage> {
                           decoration: InputDecoration(
                             hintText: "비밀번호를 입력해주세요.",
                           ),
-                          validator: (value) {
-                            if (value!.length < 10) {
-                              return "비밀번호는 10자 이상입니다.";
-                            }
+                          onSaved: (value) {
+                            _password = value;
                           },
+                          // validator: (value) {
+                          //   if (value!.length < 10) {
+                          //     return "비밀번호는 10자 이상입니다.";
+                          //   }
+                          // },
                         ),
                       ),
                     ],

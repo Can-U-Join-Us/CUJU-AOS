@@ -1,7 +1,14 @@
 import 'package:canyoujoinus/pages/auths/findUserInfo_page.dart';
+import 'package:canyoujoinus/pages/inFields/changePassword_page.dart';
+import 'package:canyoujoinus/pages/inFields/favoriteCategory_page.dart';
+import 'package:canyoujoinus/pages/inFields/notification_page.dart';
+import 'package:canyoujoinus/pages/inFields/registGithub_page.dart';
 import 'package:canyoujoinus/pages/inFields/search_page.dart';
+import 'package:canyoujoinus/pages/inFields/userInfo_page.dart';
 import 'package:canyoujoinus/pages/posts/add_project.dart';
 import 'package:canyoujoinus/pages/posts/contest_list_page.dart';
+import 'package:canyoujoinus/providers/notification_provider.dart';
+import 'package:canyoujoinus/providers/project_provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import '/pages/inFields/android_page.dart';
@@ -36,6 +43,12 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider(
           create: (_) => AuthProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (_) => ProjectProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => NotificationProvider(),
+        ),
       ],
       child: Consumer<AuthProvider>(
         builder: (ctx, auth, _) => MaterialApp(
@@ -68,6 +81,11 @@ class _MyAppState extends State<MyApp> {
             FindUserInfoPage.routeName: (ctx) => FindUserInfoPage(),
             AddProjectPage.routeName: (ctx) => AddProjectPage(),
             ContestListPage.routeName: (ctx) => ContestListPage(),
+            ChangePasswordPage.routeName: (ctx) => ChangePasswordPage(),
+            RegistGithubPage.routeName: (ctx) => RegistGithubPage(),
+            FavoriteCategoryPage.routeName: (ctx) => FavoriteCategoryPage(),
+            UserInfoPage.routeName: (ctx) => UserInfoPage(),
+            NotificationPage.routeName: (ctx) => NotificationPage(),
           },
         ),
       ),
