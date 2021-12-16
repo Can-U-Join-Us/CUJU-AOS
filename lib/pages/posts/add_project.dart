@@ -1,8 +1,13 @@
+import 'dart:io';
+
 import 'package:canyoujoinus/pages/posts/contest_list_page.dart';
+import 'package:canyoujoinus/providers/project_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rounded_date_picker/flutter_rounded_date_picker.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 class AddProjectPage extends StatefulWidget {
   const AddProjectPage({Key? key}) : super(key: key);
@@ -14,7 +19,6 @@ class AddProjectPage extends StatefulWidget {
 
 class _AddProjectPageState extends State<AddProjectPage> {
   final formKey = GlobalKey<FormState>();
-
   int _frontCnt = 0;
   int _backCnt = 0;
   int _aosCnt = 0;
@@ -23,10 +27,12 @@ class _AddProjectPageState extends State<AddProjectPage> {
   int _designCnt = 0;
   int _ectCnt = 0;
   int _total = 0;
-  String? _title;
-
-  String _dateTime = DateFormat("yyyy년 MM월 dd일").format(DateTime.now());
+  int _term = 3;
+  String _title = "";
+  String _desc = "";
+  String _dateTime = DateFormat("yyyy-MM-dd").format(DateTime.now());
   bool _selectContest = false;
+  PickedFile _image = PickedFile("/");
 
   void _showRegisterDialog(BuildContext context) {
     if (formKey.currentState!.validate() == false) {
@@ -73,7 +79,7 @@ class _AddProjectPageState extends State<AddProjectPage> {
         );
       },
     );
-    // await 추가
+    await Provider.of<ProjectProvider>(context, listen : false).addProject(_image, _title, _desc, _total, _dateTime, _term);
     Navigator.of(context).pop();
     Navigator.of(context).pop();
   }
@@ -92,7 +98,17 @@ class _AddProjectPageState extends State<AddProjectPage> {
     );
     setState(() {
       _selectContest = true;
-      _dateTime = DateFormat("yyyy년 MM월 dd일").format(newDateTime!);
+      _dateTime = DateFormat("yyyy-MM-dd").format(newDateTime!);
+    });
+  }
+
+  void _selectPhoto() async {
+    PickedFile? selectedImage = await ImagePicker().getImage(source: ImageSource.gallery);
+    if (selectedImage == null) {
+      return;
+    }
+    setState(() {
+      _image = selectedImage;
     });
   }
 
@@ -141,11 +157,36 @@ class _AddProjectPageState extends State<AddProjectPage> {
                       hintText: "프로젝트 제목을 입력해주세요.",
                     ),
                     textInputAction: TextInputAction.next,
+                    onSaved: (value) {
+                      _title = value!;
+                    },
                     validator: (value) {
                       if (value!.length == 0) {
                         return "필수 입력란입니다.";
                       }
                     },
+                  ),
+                  SizedBox(height: 20),
+                  TitleTextComponent("프로젝트 사진"),
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.2,
+                    width: MediaQuery.of(context).size.height * 0.2,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.grey,
+                      ),
+                    ),
+                    child: _image.path.length <= 10
+                        ? IconButton(
+                        icon: Icon(Icons.add),
+                        onPressed: () {
+                          _selectPhoto();
+                        })
+                        : ClipRRect(
+                      child: Image.file(
+                        File(_image.path),
+                      ),
+                    ),
                   ),
                   SizedBox(height: 20),
                   TitleTextComponent("게시글 내용"),
@@ -165,12 +206,32 @@ class _AddProjectPageState extends State<AddProjectPage> {
                         hintText: "프로젝트에 관한 자세한 설명을 입력해주세요.",
                       ),
                       textInputAction: TextInputAction.newline,
+                      onSaved: (value) {
+                        _desc = value!;
+                      },
                       validator: (value) {
                         if (value!.length == 0) {
                           return "필수 입력란입니다.";
                         }
                       },
                     ),
+                  ),
+                  SizedBox(height: 20),
+                  TitleTextComponent("프로젝트 기간"),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      hintText: "프로젝트 제작 기간을 입력해주세요.",
+                    ),
+                    keyboardType: TextInputType.number,
+                    textInputAction: TextInputAction.next,
+                    onSaved: (value) {
+                      _term = int.parse(value!);
+                    },
+                    validator: (value) {
+                      if (int.parse(value!) > 12) {
+                        return "필수 입력란입니다.";
+                      }
+                    },
                   ),
                   SizedBox(height: 20),
                   TitleTextComponent("모집 분야별 인원"),
@@ -502,7 +563,7 @@ class _AddProjectPageState extends State<AddProjectPage> {
                     children: <Widget>[
                       Container(
                         width: MediaQuery.of(context).size.width * 0.65,
-                        child: _title == null
+                        child: _title.length == 0
                             ? Text(
                                 "공모전 프로젝트인 경우 찾아보기를 클릭하여\n해당 공모전을 등록해주세요.",
                                 style: TextStyle(

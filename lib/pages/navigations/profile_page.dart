@@ -1,5 +1,6 @@
 import 'package:canyoujoinus/pages/inFields/changePassword_page.dart';
 import 'package:canyoujoinus/pages/inFields/favoriteCategory_page.dart';
+import 'package:canyoujoinus/pages/inFields/notification_page.dart';
 import 'package:canyoujoinus/pages/inFields/registGithub_page.dart';
 import 'package:canyoujoinus/pages/inFields/userInfo_page.dart';
 import 'package:canyoujoinus/providers/auth_provider.dart';
@@ -41,7 +42,13 @@ class _ProfilePageState extends State<ProfilePage> {
             onPressed: () {
               Navigator.of(context).pushNamed(UserInfoPage.routeName);
             },
-          )
+          ),
+          IconButton(
+            icon: Icon(Icons.notifications),
+            onPressed: () {
+              Navigator.of(context).pushNamed(NotificationPage.routeName);
+            },
+          ),
         ],
       ),
       body: SingleChildScrollView(

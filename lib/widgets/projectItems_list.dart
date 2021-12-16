@@ -1,3 +1,6 @@
+import 'package:canyoujoinus/models/project.dart';
+import 'package:canyoujoinus/pages/inFields/project_info_page.dart';
+
 import '/models/competition.dart';
 import '/pages/navigations/contest_page.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +15,8 @@ class ProjectItemsList extends StatelessWidget {
   late int term;
   late String due;
 
-  ProjectItemsList(this.id, this.pid, this.title, this.description, this.imageUrl, this.count, this.term, this.due);
+  ProjectItemsList(this.id, this.pid, this.title, this.description,
+      this.imageUrl, this.count, this.term, this.due);
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +37,7 @@ class ProjectItemsList extends StatelessWidget {
               padding: EdgeInsets.all(10),
               child: Image(
                 image: NetworkImage(imageUrl),
-                  fit: BoxFit.contain,
+                fit: BoxFit.contain,
               ),
             ),
             Container(
@@ -53,7 +57,9 @@ class ProjectItemsList extends StatelessWidget {
                     description,
                     textAlign: TextAlign.end,
                     maxLines: 1,
-                    style: TextStyle(fontSize: 10,),
+                    style: TextStyle(
+                      fontSize: 10,
+                    ),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -87,12 +93,16 @@ class ProjectItemsList extends StatelessWidget {
       ),
       onTap: () {
         Navigator.of(context).pushNamed(
-          ContestPage.routeName,
-          arguments: Competition(
+          ProjectInfoPage.routeName,
+          arguments: Project(
             title: this.title,
             description: this.description,
-            dueDate: this.due,
             imageUrl: this.imageUrl,
+            pid: pid,
+            term: term,
+            due: due,
+            id: id,
+            count: count,
           ),
         );
       },
