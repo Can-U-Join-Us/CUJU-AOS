@@ -42,7 +42,6 @@ class _ProjectPageState extends State<ProjectPage> {
       _isLoading = true;
     });
     await Provider.of<ProjectProvider>(context, listen: false).fetchAndSetProject();
-    print(Provider.of<ProjectProvider>(context, listen: false).items[0].title);
     setState(() {
       _isLoading = false;
     });
@@ -63,12 +62,6 @@ class _ProjectPageState extends State<ProjectPage> {
               icon: Icon(Icons.search),
               onPressed: () {
                 Navigator.of(context).pushNamed(SearchPage.routeName);
-              },
-            ),
-            IconButton(
-              icon : Icon(Icons.notifications),
-              onPressed: () {
-                Navigator.of(context).pushNamed(NotificationPage.routeName);
               },
             ),
           ],

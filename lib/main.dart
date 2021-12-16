@@ -2,6 +2,8 @@ import 'package:canyoujoinus/pages/auths/findUserInfo_page.dart';
 import 'package:canyoujoinus/pages/inFields/changePassword_page.dart';
 import 'package:canyoujoinus/pages/inFields/favoriteCategory_page.dart';
 import 'package:canyoujoinus/pages/inFields/notification_page.dart';
+import 'package:canyoujoinus/pages/inFields/otherInfo_page.dart';
+import 'package:canyoujoinus/pages/inFields/project_info_page.dart';
 import 'package:canyoujoinus/pages/inFields/registGithub_page.dart';
 import 'package:canyoujoinus/pages/inFields/search_page.dart';
 import 'package:canyoujoinus/pages/inFields/userInfo_page.dart';
@@ -69,6 +71,7 @@ class _MyAppState extends State<MyApp> {
           home: auth.isAuth ? HomePage() : InitialPage(),
           routes: {
             SearchPage.routeName: (ctx) => SearchPage(),
+            ProjectInfoPage.routeName : (ctx) => ProjectInfoPage(),
             CompetitionInfoPage.routeName: (ctx) => CompetitionInfoPage(),
             FrontendPage.routeName: (ctx) => FrontendPage(),
             BackendPage.routeName: (ctx) => BackendPage(),
@@ -86,6 +89,7 @@ class _MyAppState extends State<MyApp> {
             FavoriteCategoryPage.routeName: (ctx) => FavoriteCategoryPage(),
             UserInfoPage.routeName: (ctx) => UserInfoPage(),
             NotificationPage.routeName: (ctx) => NotificationPage(),
+            OtherInfoPage.routeName : (ctx) => OtherInfoPage(),
           },
         ),
       ),
