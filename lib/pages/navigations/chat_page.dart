@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../chat/entrance_page/entrance_page.dart';
+import '../../chat/entrance_page/local_utils/EntranceProvider.dart';
+import 'package:provider/provider.dart' show ChangeNotifierProvider;
+
 
 class ChatPage extends StatefulWidget {
   const ChatPage({Key? key}) : super(key: key);
@@ -8,28 +13,9 @@ class ChatPage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<ChatPage> {
-  Future<void> _refresh(BuildContext context) async {
-
-  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          "채팅",
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-        ),
-        backgroundColor: Colors.white,
-        iconTheme: IconThemeData(color: Colors.black),
-      ),
-      body: RefreshIndicator(
-        onRefresh: () => _refresh(context),
-        child: Center(
-          child: Text("채팅 페이지sadf"),
-        ),
-      ),
-    );
+    return ChangeNotifierProvider(create : (context) => EntranceProvider(), child: EntrancePage());
   }
 }

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1030218334521",
+    "project_id": "canyoujoinus-a7f68",
+    "storage_bucket": "canyoujoinus-a7f68.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1030218334521:android:d908de2e1e7c4abab668e8",
+        "android_client_info": {
+          "package_name": "com.example.CYJU"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1030218334521-83d2vmbdk74roc4dm18thiirn5374gr5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCF-PVDeryYTDv8q57hojXZU5VHg943fho"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1030218334521-83d2vmbdk74roc4dm18thiirn5374gr5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
