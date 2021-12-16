@@ -11,6 +11,7 @@ import 'package:canyoujoinus/pages/posts/add_project.dart';
 import 'package:canyoujoinus/pages/posts/contest_list_page.dart';
 import 'package:canyoujoinus/providers/notification_provider.dart';
 import 'package:canyoujoinus/providers/project_provider.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import '/pages/inFields/android_page.dart';
@@ -28,7 +29,9 @@ import 'pages/home_page.dart';
 import 'providers/auth_provider.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
