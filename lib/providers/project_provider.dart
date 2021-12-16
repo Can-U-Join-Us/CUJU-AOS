@@ -1,6 +1,11 @@
+import 'dart:io';
+import 'package:path/path.dart';
+import 'package:async/async.dart';
 import 'package:canyoujoinus/models/project.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
+import 'package:image_picker/image_picker.dart';
 import 'dart:convert';
 
 import 'package:intl/intl.dart';
@@ -19,7 +24,6 @@ class ProjectProvider with ChangeNotifier {
   // 1. 전체 프로젝트 가져오는 메소드
   Future<void> fetchAndSetProject() async {
     final url = Uri.parse('http://192.168.0.7:4000/api/Projects');
-
     try {
       final response = await http.get(url);
       if (response.statusCode == 200) {
@@ -88,8 +92,63 @@ class ProjectProvider with ChangeNotifier {
   }
 
   // 3. 프로젝트 모집 게시글 등록 메소드
-  Future<void> addProject() async {}
+  Future<void> addProject(PickedFile projectImage, String title, String content, int total, String due, int term) async {
+    final stream = http.ByteStream(DelegatingStream.typed(projectImage.openRead()));
+    var uid = await FlutterSecureStorage().read(key: "auth");
+
+    // final url = Uri.parse('http://192.168.0.7:4000/api/Projects/add');
+    // final imageUrl = Uri.parse('http://192.168.0.7:4000/api/${projectImage.path}');
+    //
+    // // try {
+    // //   final response = await http.post(url, body : {
+    // //     'uid' : uid,
+    // //     'title' : title,
+    // //     'desc' : content,
+    // //     'total' : total,
+    // //     'due' : DateTime.parse(due),
+    // //     'term' : term,
+    // //   })
+    //
+    // final response = await http.post(imageUrl);
+    // print(response.statusCode);
+
+    // http의 MultipartFile을 사용하기 위해 파일의 크기를 알아낸다.
+    final length = File(projectImage.path).lengthSync();
+
+    final url = 'http://192.168.0.7:4000/api/Projects/add';
+    final request = http.MultipartRequest(
+      "POST",
+      Uri.parse(url),
+    );
+    print(projectImage.path);
+    final multipartFileSign = new http.MultipartFile('content', stream, length, filename: basename("/test1"));
+    request.files.add(multipartFileSign);
+    Map<String, dynamic> requestBody = new Map<String, dynamic>();
+    requestBody['uid'] = int.parse("1");
+    requestBody['title'] = title;
+    requestBody['desc'] = content;
+    requestBody['total'] = total;
+    requestBody['due'] = due;
+    requestBody['term'] = term;
+    print(request);
+    print(requestBody);
+    print(request.files);
+
+    // request를 전송한다.
+    final response = await request.send();
+
+    // 응답코드가 201이 아니면 오류.
+    if (response.statusCode != 200) {
+      return;
+    } else {
+    }
+  }
 
   // 4. 프로젝트 모집 게시글 삭제 메소드
   Future<void> deleteProject() async {}
+
+  Future<void> participateProject() async {
+    var uid = await FlutterSecureStorage().read(key: "auth");
+    final url = Uri.parse('http://192.168.0.7:4000/api/Projects/');
+  }
 }
