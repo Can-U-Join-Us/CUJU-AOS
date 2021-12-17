@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SearchWidget extends StatefulWidget {
+  static const routeName = "/search";
   const SearchWidget({Key? key}) : super(key: key);
 
   @override
@@ -13,7 +14,7 @@ class _SearchWidgetState extends State<SearchWidget> {
   String _selectCategory = '여기에';
   String _selectPart = 'Front-End';
 
-  List<String> category = ['여기에', '뭐 들어가?', '안녕'];
+  List<String> category = ['공모전', '개인 프로젝트?'];
   List<String> part = ['Front-End', 'Back-End', 'Android', 'IOS', 'DevOps'];
   List<String> scaleRanges = ["토이", "시/도", "전국", "국제"];
   List<String> termRanges = ["1개월", "6개월", "1년", "미정"];
@@ -29,102 +30,109 @@ class _SearchWidgetState extends State<SearchWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: Theme.of(context).primaryColor, width: 5),
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          "검색",
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
-        padding: EdgeInsets.all(10),
-        margin: EdgeInsets.only(bottom: 8),
-        width: double.infinity,
-        child: pressExpanded
-            ? Column(
-                children: <Widget>[
-                  defaultSearchBox(),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          "프로젝트\n규모",
-                          textAlign: TextAlign.center,
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.black),
+      ),
+      body: SafeArea(
+        child: Container(
+          padding: EdgeInsets.all(20),
+          margin: EdgeInsets.only(bottom: 8),
+          width: double.infinity,
+          child: pressExpanded
+              ? Column(
+                  children: <Widget>[
+                    defaultSearchBox(),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            "프로젝트\n규모",
+                            textAlign: TextAlign.center,
+                          ),
                         ),
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.70,
-                        height: 50,
-                        child: buildListViewCheckBox("scale"),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          "제작 기간",
-                          textAlign: TextAlign.center,
+                        Container(
+                          width: MediaQuery.of(context).size.width * 0.70,
+                          height: 50,
+                          child: buildListViewCheckBox("scale"),
                         ),
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.70,
-                        height: 50,
-                        child: buildListViewCheckBox("term"),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text("카테고리"),
-                      DropdownButton(
-                        value: _selectCategory,
-                        items: category
-                            .map(
-                              (value) => DropdownMenuItem(
-                                value: value,
-                                child: Text(
-                                  value.toString(),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            "제작 기간",
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width * 0.70,
+                          height: 50,
+                          child: buildListViewCheckBox("term"),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text("카테고리"),
+                        DropdownButton(
+                          value: _selectCategory,
+                          items: category
+                              .map(
+                                (value) => DropdownMenuItem(
+                                  value: value,
+                                  child: Text(
+                                    value.toString(),
+                                  ),
                                 ),
-                              ),
-                            )
-                            .toList(),
-                        onChanged: (value) {
-                          setState(
-                            () {
-                              _selectCategory = value as String;
-                            },
-                          );
-                        },
-                      ),
-                      Text("모집 부분"),
-                      DropdownButton(
-                        value: _selectPart,
-                        items: part
-                            .map(
-                              (value) => DropdownMenuItem(
-                                value: value,
-                                child: Text(
-                                  value.toString(),
+                              )
+                              .toList(),
+                          onChanged: (value) {
+                            setState(
+                              () {
+                                _selectCategory = value as String;
+                              },
+                            );
+                          },
+                        ),
+                        Text("모집 부분"),
+                        DropdownButton(
+                          value: _selectPart,
+                          items: part
+                              .map(
+                                (value) => DropdownMenuItem(
+                                  value: value,
+                                  child: Text(
+                                    value.toString(),
+                                  ),
                                 ),
-                              ),
-                            )
-                            .toList(),
-                        onChanged: (value) {
-                          setState(
-                            () {
-                              _selectPart = value as String;
-                            },
-                          );
-                        },
-                      ),
-                    ],
-                  ),
-                ],
-              )
-            : defaultSearchBox(),
+                              )
+                              .toList(),
+                          onChanged: (value) {
+                            setState(
+                              () {
+                                _selectPart = value as String;
+                              },
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                  ],
+                )
+              : defaultSearchBox(),
+        ),
       ),
     );
   }

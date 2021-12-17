@@ -7,11 +7,13 @@ class AndroidPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Container(
-          alignment: Alignment.center,
-          width: double.infinity,
-          child: Text("안드로이드"),
+        centerTitle: true,
+        title: Text(
+          "AOS",
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.black),
         actions: [
           IconButton(
             icon: Icon(Icons.search),

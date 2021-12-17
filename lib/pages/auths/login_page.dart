@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:canyoujoinus/pages/auths/findUserInfo_page.dart';
 import 'package:canyoujoinus/providers/auth_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
@@ -54,6 +55,7 @@ class _LoginPageState extends State<LoginPage> {
           _isLoading = false;
         });
         if (Provider.of<AuthProvider>(context, listen: false).isAuth) {
+          await FlutterSecureStorage().write(key : "userEmail", value: _id);
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text("로그인에 성공하였습니다."),
@@ -74,6 +76,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset : false,
       appBar: AppBar(
         centerTitle: true,
         title: Text(

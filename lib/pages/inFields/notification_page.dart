@@ -255,7 +255,7 @@ class _ProjectNotificationState extends State<ProjectNotification> {
               },
               itemCount:
                   Provider.of<NotificationProvider>(context, listen: false)
-                      .systemNotificationList
+                      .projectNotificationList
                       .length,
             ),
           );

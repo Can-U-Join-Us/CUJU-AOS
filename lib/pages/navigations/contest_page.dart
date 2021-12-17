@@ -1,4 +1,5 @@
 import 'package:canyoujoinus/pages/posts/add_project.dart';
+import 'package:canyoujoinus/widgets/search.dart';
 import '/pages/inFields/search_page.dart';
 import '/models/competition.dart';
 import 'package:canyoujoinus/widgets/contestItems_list.dart';
@@ -103,7 +104,7 @@ class _ContestPageState extends State<ContestPage> {
             IconButton(
               icon: Icon(Icons.search),
               onPressed: () {
-                Navigator.of(context).pushNamed(SearchPage.routeName);
+                Navigator.of(context).pushNamed(SearchWidget.routeName);
               },
             )
           ],
@@ -119,7 +120,7 @@ class _ContestPageState extends State<ContestPage> {
               child: Column(
                 children: [
                   Container(
-                    height: MediaQuery.of(context).size.height * 0.77,
+                    height: MediaQuery.of(context).size.height * 0.78,
                     child: Container(
                       child: ListView.builder(
                         itemBuilder: (BuildContext context, int index) =>

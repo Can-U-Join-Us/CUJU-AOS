@@ -2,6 +2,7 @@ import 'package:canyoujoinus/models/competition.dart';
 import 'package:canyoujoinus/pages/inFields/notification_page.dart';
 import 'package:canyoujoinus/providers/project_provider.dart';
 import 'package:canyoujoinus/widgets/projectItems_list.dart';
+import 'package:canyoujoinus/widgets/search.dart';
 import 'package:provider/provider.dart';
 import '/pages/inFields/search_page.dart';
 import '/pages/posts/add_project.dart';
@@ -21,7 +22,7 @@ class ProjectPage extends StatefulWidget {
 }
 
 class _ProjectPageState extends State<ProjectPage> {
-  List<String> _fieldItems = ["프론트엔드", "백엔드", "안드로이드", "IOS", "디자인", "PM"];
+  List<String> _fieldItems = ["fe", "be", "aos", "ios", "designer", "pm"];
   List<String> _routeNames = [
     FrontendPage.routeName,
     BackendPage.routeName,
@@ -61,7 +62,7 @@ class _ProjectPageState extends State<ProjectPage> {
             IconButton(
               icon: Icon(Icons.search),
               onPressed: () {
-                Navigator.of(context).pushNamed(SearchPage.routeName);
+                Navigator.of(context).pushNamed(SearchWidget.routeName);
               },
             ),
           ],
@@ -87,7 +88,7 @@ class _ProjectPageState extends State<ProjectPage> {
                         Column(
                           children: [
                             Container(
-                              height: MediaQuery.of(context).size.height * 0.72,
+                              height: MediaQuery.of(context).size.height * 0.78,
                               child: Container(
                                 child: ListView.builder(
                                   itemBuilder:
@@ -102,7 +103,7 @@ class _ProjectPageState extends State<ProjectPage> {
                                             Provider.of<ProjectProvider>(context, listen : false).projectItems[index].term,
                                             Provider.of<ProjectProvider>(context, listen : false).projectItems[index].due,
                                   ),
-                                  itemCount: CompetitionItems().itemCount,
+                                  itemCount: Provider.of<ProjectProvider>(context, listen : false).itemCount,
                                 ),
                               ),
                             ),
@@ -154,14 +155,15 @@ class _ProjectPageState extends State<ProjectPage> {
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: Colors.blue,
+                  color: Colors.grey,
                 ),
                 width: MediaQuery.of(context).size.width * 0.3,
                 child: Text(
-                  items[index],
+                  items[index], style : TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
                 ),
               ),
               onTap: () {
+                Provider.of<ProjectProvider>(context, listen : false).fetchAndSetProjectByCategory(_fieldItems[index]);
                 Navigator.of(context).pushNamed(routeNames[index]);
               },
             ),

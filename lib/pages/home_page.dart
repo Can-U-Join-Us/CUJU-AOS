@@ -1,3 +1,4 @@
+import 'package:canyoujoinus/chat/entrance_page/entrance_page.dart';
 import 'package:flutter/material.dart';
 import 'navigations/main_page.dart';
 import 'navigations/profile_page.dart';
@@ -13,12 +14,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _selectedIndex = 2;
+  int _selectedIndex = 1;
   List<Widget> _screen = [
     ProjectPage(),
     ContestPage(),
-    MainPage(),
-    ChatPage(),
+    EntrancePage(),
     ProfilePage()
   ];
 
@@ -40,10 +40,6 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
             title: Text('공모전'),
             icon: Icon(Icons.cloud),
-          ),
-          BottomNavigationBarItem(
-            title: Text('홈'),
-            icon: Icon(Icons.home),
           ),
           BottomNavigationBarItem(
             title: Text('채팅'),

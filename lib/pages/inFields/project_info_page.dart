@@ -1,5 +1,7 @@
 import 'package:canyoujoinus/models/project.dart';
+import 'package:canyoujoinus/providers/project_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ProjectInfoPage extends StatefulWidget {
   static const routeName = "/project-info";
@@ -16,11 +18,14 @@ class _ProjectInfoPageState extends State<ProjectInfoPage> {
   late String _due;
   late int term;
 
+  @override
+  void initState() {
+    super.initState();
+  }
+
   void didChangeDependencies() {
-    Project project = ModalRoute.of(context)!.settings.arguments as Project;
-    _title = project.title;
-    _desc = project.description;
-    _due = project.due;
+    final pid = ModalRoute.of(context)!.settings.arguments as int;
+    Provider.of<ProjectProvider>(context, listen : false).detailProject(pid);
     super.didChangeDependencies();
   }
 

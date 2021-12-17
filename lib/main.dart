@@ -11,6 +11,7 @@ import 'package:canyoujoinus/pages/posts/add_project.dart';
 import 'package:canyoujoinus/pages/posts/contest_list_page.dart';
 import 'package:canyoujoinus/providers/notification_provider.dart';
 import 'package:canyoujoinus/providers/project_provider.dart';
+import 'package:canyoujoinus/widgets/search.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -73,7 +74,7 @@ class _MyAppState extends State<MyApp> {
           ),
           home: auth.isAuth ? HomePage() : InitialPage(),
           routes: {
-            SearchPage.routeName: (ctx) => SearchPage(),
+            SearchWidget.routeName: (ctx) => SearchWidget(),
             ProjectInfoPage.routeName : (ctx) => ProjectInfoPage(),
             CompetitionInfoPage.routeName: (ctx) => CompetitionInfoPage(),
             FrontendPage.routeName: (ctx) => FrontendPage(),
