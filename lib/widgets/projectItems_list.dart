@@ -14,6 +14,13 @@ class ProjectItemsList extends StatelessWidget {
   late int count;
   late int term;
   late String due;
+  late int aos;
+  late int ios;
+  late int fe;
+  late int be;
+  late int design;
+  late int pm;
+  late int devops;
 
   ProjectItemsList(this.id, this.pid, this.title, this.description,
       this.imageUrl, this.count, this.term, this.due);
@@ -22,7 +29,10 @@ class ProjectItemsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.15,
+        height: MediaQuery
+            .of(context)
+            .size
+            .height * 0.15,
         margin: EdgeInsets.only(bottom: 8),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
@@ -32,8 +42,14 @@ class ProjectItemsList extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             Container(
-              height: MediaQuery.of(context).size.height * 0.15,
-              width: MediaQuery.of(context).size.height * 0.15,
+              height: MediaQuery
+                  .of(context)
+                  .size
+                  .height * 0.15,
+              width: MediaQuery
+                  .of(context)
+                  .size
+                  .height * 0.15,
               padding: EdgeInsets.all(10),
               child: Image(
                 image: NetworkImage(imageUrl),
@@ -41,7 +57,10 @@ class ProjectItemsList extends StatelessWidget {
               ),
             ),
             Container(
-              width: MediaQuery.of(context).size.width * 0.55,
+              width: MediaQuery
+                  .of(context)
+                  .size
+                  .width * 0.55,
               margin: EdgeInsets.all(10),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -77,7 +96,8 @@ class ProjectItemsList extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.all(3.0),
                           child: Text(
-                            "D-${(DateTime.parse(due).difference(DateTime.now())).inDays.toString()}",
+                            "D-${(DateTime.parse(due).difference(
+                                DateTime.now())).inDays.toString()}",
                             textAlign: TextAlign.center,
                             style: TextStyle(color: Colors.white),
                           ),
@@ -93,17 +113,8 @@ class ProjectItemsList extends StatelessWidget {
       ),
       onTap: () {
         Navigator.of(context).pushNamed(
-          ProjectInfoPage.routeName,
-          arguments: Project(
-            title: this.title,
-            description: this.description,
-            imageUrl: this.imageUrl,
-            pid: pid,
-            term: term,
-            due: due,
-            id: id,
-            count: count,
-          ),
+            ProjectInfoPage.routeName,
+            arguments: pid
         );
       },
     );

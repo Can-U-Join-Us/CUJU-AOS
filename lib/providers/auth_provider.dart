@@ -6,10 +6,15 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 class AuthProvider with ChangeNotifier {
   static final secureStorage = FlutterSecureStorage();
   String? auth;
+  String? email;
 
   bool get isAuth {
     checkAuthenticate();
     return auth != null;
+  }
+
+  String get isEmail {
+    return email!;
   }
 
   // 1. 로그인
@@ -25,6 +30,7 @@ class AuthProvider with ChangeNotifier {
       if (response.statusCode == 200) {
         final extractedDate = jsonDecode(response.body)['uid'].toString();
         await secureStorage.write(key: "auth", value: extractedDate);
+        await secureStorage.write(key: "userEmail", value: id);
         auth = extractedDate;
         notifyListeners();
       } else {
@@ -72,7 +78,11 @@ class AuthProvider with ChangeNotifier {
       final response = await http.post(
         url,
         body: json.encode(
-          {'uid': int.parse(uid!), 'pw': currentPassword, 'new': changePassword},
+          {
+            'uid': int.parse(uid!),
+            'pw': currentPassword,
+            'new': changePassword
+          },
         ),
       );
       if (response.statusCode == 200) {
@@ -85,7 +95,44 @@ class AuthProvider with ChangeNotifier {
     }
   }
 
-  // Future<void> fetchAndSet
+  Future<void> findId(String phoneNumber) async {
+    final url = Uri.parse('http://192.168.0.7:4000/api/User/find/id');
+    try {
+      final response = await http.post(
+        url,
+        body: json.encode(
+          {'phone': phoneNumber},
+        ),
+      );
+      if (response.statusCode == 200) {
+        final responseData = jsonDecode(response.body);
+        final email = responseData['id'];
+        await FlutterSecureStorage().write(key: "email", value: email);
+      } else {
+        throw Exception;
+      }
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  Future<void> findPassword(String email) async {
+    final url = Uri.parse('http://192.168.0.7:4000/api/User/find/pw');
+    try {
+      final response = await http.post(
+        url,
+        body: json.encode(
+          {'email': email},
+        ),
+      );
+      if (response.statusCode == 200) {
+      } else {
+        throw Exception;
+      }
+    } catch (error) {
+      throw error;
+    }
+  }
 
   // 4. 로그인 여부 확인
   Future<void> checkAuthenticate() async {

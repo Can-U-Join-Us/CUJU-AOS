@@ -26,6 +26,7 @@ class _AddProjectPageState extends State<AddProjectPage> {
   int _pmCnt = 0;
   int _designCnt = 0;
   int _ectCnt = 0;
+  int _devCnt = 0;
   int _total = 0;
   int _term = 3;
   String _title = "";
@@ -79,7 +80,21 @@ class _AddProjectPageState extends State<AddProjectPage> {
         );
       },
     );
-    await Provider.of<ProjectProvider>(context, listen : false).addProject(_image, _title, _desc, _total, _dateTime, _term);
+    await Provider.of<ProjectProvider>(context, listen: false).addProject(
+        _image,
+        _title,
+        _desc,
+        _total,
+        _dateTime,
+        _term,
+        _aosCnt,
+        _iosCnt,
+        _frontCnt,
+        _backCnt,
+        _devCnt,
+        _designCnt,
+        _pmCnt,
+        _ectCnt);
     Navigator.of(context).pop();
     Navigator.of(context).pop();
   }
@@ -103,7 +118,8 @@ class _AddProjectPageState extends State<AddProjectPage> {
   }
 
   void _selectPhoto() async {
-    PickedFile? selectedImage = await ImagePicker().getImage(source: ImageSource.gallery);
+    PickedFile? selectedImage =
+        await ImagePicker().getImage(source: ImageSource.gallery);
     if (selectedImage == null) {
       return;
     }
@@ -120,6 +136,7 @@ class _AddProjectPageState extends State<AddProjectPage> {
         _iosCnt +
         _pmCnt +
         _designCnt +
+        _devCnt +
         _ectCnt;
 
     return Scaffold(
@@ -178,15 +195,15 @@ class _AddProjectPageState extends State<AddProjectPage> {
                     ),
                     child: _image.path.length <= 10
                         ? IconButton(
-                        icon: Icon(Icons.add),
-                        onPressed: () {
-                          _selectPhoto();
-                        })
+                            icon: Icon(Icons.add),
+                            onPressed: () {
+                              _selectPhoto();
+                            })
                         : ClipRRect(
-                      child: Image.file(
-                        File(_image.path),
-                      ),
-                    ),
+                            child: Image.file(
+                              File(_image.path),
+                            ),
+                          ),
                   ),
                   SizedBox(height: 20),
                   TitleTextComponent("게시글 내용"),
@@ -453,6 +470,43 @@ class _AddProjectPageState extends State<AddProjectPage> {
                                   onPressed: () {
                                     setState(() {
                                       _designCnt++;
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
+                            flex: 1,
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Expanded(
+                            child: Center(
+                              child: Text("데브옵"),
+                            ),
+                            flex: 2,
+                          ),
+                          Expanded(
+                            child: Row(
+                              children: <Widget>[
+                                IconButton(
+                                  icon: Icon(Icons.remove),
+                                  onPressed: () {
+                                    setState(() {
+                                      if (_devCnt > 0) {
+                                        _devCnt--;
+                                      }
+                                    });
+                                  },
+                                ),
+                                Text(_devCnt.toString()),
+                                IconButton(
+                                  icon: Icon(Icons.add),
+                                  onPressed: () {
+                                    setState(() {
+                                      _devCnt++;
                                     });
                                   },
                                 ),

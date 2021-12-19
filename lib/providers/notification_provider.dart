@@ -29,7 +29,7 @@ class NotificationProvider with ChangeNotifier {
                 pid: value['pid'],
               ),
             );
-          } else if (value['type'] == 1) {
+          } else  {
             projectData.add(
               Keyword(
                 title: value['subject'],
@@ -38,7 +38,7 @@ class NotificationProvider with ChangeNotifier {
                 pid: value['pid'],
               ),
             );
-          } else {}
+          }
         });
         systemNotificationList = systemData;
         projectNotificationList = projectData;

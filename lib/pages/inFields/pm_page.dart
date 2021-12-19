@@ -12,11 +12,13 @@ class _PmPageState extends State<PmPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Container(
-          alignment: Alignment.center,
-          width: double.infinity,
-          child: Text("PM"),
+        centerTitle: true,
+        title: Text(
+          "PM",
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.black),
         actions: [
           IconButton(
             icon: Icon(Icons.search),

@@ -5,33 +5,6 @@ import 'package:flutter/material.dart';
 class ContestListPage extends StatelessWidget {
   static const routeName = "/contest-list";
 
-  // void _selectContestItem(BuildContext context, String title) {
-  //   showDialog(
-  //     context: context,
-  //     barrierDismissible: false,
-  //     builder: (BuildContext ctx) {
-  //       return AlertDialog(
-  //         content: Text("$title을 선택하시겠어요?"),
-  //         actions: [
-  //           FlatButton(
-  //             child: Text("예"),
-  //             onPressed: () {
-  //               Navigator.of(context).pop(title);
-  //               Navigator.of(context).pop();
-  //             },
-  //           ),
-  //           FlatButton(
-  //             child: Text("아니오"),
-  //             onPressed: () {
-  //               Navigator.of(context).pop();
-  //             },
-  //           ),
-  //         ],
-  //       );
-  //     },
-  //   );
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

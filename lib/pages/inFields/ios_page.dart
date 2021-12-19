@@ -7,11 +7,13 @@ class IosPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Container(
-          alignment: Alignment.center,
-          width: double.infinity,
-          child: Text("IOS"),
+        centerTitle: true,
+        title: Text(
+          "IOS",
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.black),
         actions: [
           IconButton(
             icon: Icon(Icons.search),
