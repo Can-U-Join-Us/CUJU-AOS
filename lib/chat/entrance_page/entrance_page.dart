@@ -40,17 +40,20 @@ class _EntrancePageState extends State<EntrancePage> {
           children: [
             Padding(
               padding: const EdgeInsets.all(12.0),
-              child: Text("k906506@naver.com"),
+              child: Text(""),
             ),
             GestureDetector(
               behavior: HitTestBehavior.translucent,
               onTap: () async {
                 var u = Uuid().v1();
-                Navigator.of(context).push(MaterialPageRoute(
+                Navigator.of(context).push(
+                  MaterialPageRoute(
                     builder: (context) => ChangeNotifierProvider(
-                        create: (context) =>
-                            ChattingProvider(u, "k906506@naver.com"),
-                        child: ChattingPage())));
+                      create: (context) => ChattingProvider(u, ""),
+                      child: ChattingPage(),
+                    ),
+                  ),
+                );
               },
               child: Container(
                   padding: EdgeInsets.all(13),
