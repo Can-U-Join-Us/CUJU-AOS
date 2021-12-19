@@ -55,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
           _isLoading = false;
         });
         if (Provider.of<AuthProvider>(context, listen: false).isAuth) {
-          await FlutterSecureStorage().write(key : "userEmail", value: _id);
+          await FlutterSecureStorage().write(key: "userEmail", value: _id);
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text("로그인에 성공하였습니다."),
@@ -76,7 +76,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset : false,
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         centerTitle: true,
         title: Text(
