@@ -13,13 +13,13 @@
 <img src="https://github.com/Can-U-Join-Us/CUJU-AOS/blob/master/images/initial_3.png" width="300">
 </div>
 
- **같이할래?** 는 충남대학교 컴퓨터공학과 소프트웨어공학 교과목에서 진행한 팀프로젝트로 대학생이 개인 프로젝트 진행이나 공모전 참가를 위해 분야별(FE, BE, PM 등등)로 인원을 쉽게 모집할 수 있도록 도와주는 **팀원 모집 플랫폼**입니다.
+ **같이할래?** 는 대학생이 개인 프로젝트 진행이나 공모전 참가를 위해 분야별(FE, BE, PM 등등)로 인원을 쉽게 모집할 수 있도록 도와주는 **팀원 모집 플랫폼**입니다.
 
 ## 팀 소개
 
-|[고도현](https://github.com/k906506)|[신희승](https://github.com/sinheeseung)|[최현석](https://github.com/201702083)|
+|[ko_od](https://github.com/k906506)|[신희승](https://github.com/sinheeseung)|[최현석](https://github.com/201702083)|
 |:-:|:-:|:-:|
-|<a href="url"><img src="https://avatars.githubusercontent.com/k906506" style="border-radius:50%"></a>|<a href="url"><img src="https://avatars.githubusercontent.com/sinheeseung" style="border-radius:50%"></a>|<a href="url"><img src="https://avatars.githubusercontent.com/201702083" style="border-radius:50%"></a>|
+|<a href="url"><img src="https://avatars.githubusercontent.com/k906506" style="border-radius:50%"></a>|<a href="url"><img src="https://avatars.githubusercontent.com/sinheeseung" style="border-radius:50%"></a>|<a href="url"><img src="https://avatars.githubusercontent.com/hyunkoes" style="border-radius:50%"></a>|
 |프론트엔드|프론트엔드|백엔드|
 
 ## 기능
@@ -132,7 +132,7 @@ feature -> develop -> master 로 관리한다.
 'feature' 브랜치는 다음과 같이 'develop' 브랜치에서 분기한다.
 
 ```
-$ git checkout -b kodohyeon_feature develop
+$ git checkout -b honggildong_feature develop
 ```
 
 'feature' 브랜치에서 모든 작업이 끝나면 다음과 같이 'develop' 브랜치로 merge하고 더이상 필요하지 않은 'feature' 브랜치는 삭제한다.
@@ -140,10 +140,10 @@ $ git checkout -b kodohyeon_feature develop
 ```
 $ git checkout develop
 Switched to branch 'develop'.
-$ git merge --no-ff kodohyeon_feature
+$ git merge --no-ff honggildong_feature
 Updating asd293u...ddu9.
 (Summary of changes)
-$ git branch -d kodohyeon_feature
-Deleted branch kodohyeon_feature.
+$ git branch -d honggildong_feature
+Deleted branch honggildong_feature.
 $ git push origin develop
 ```
